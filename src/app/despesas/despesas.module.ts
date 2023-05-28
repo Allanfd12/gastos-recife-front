@@ -6,18 +6,22 @@ import { DespesasRoutingModule } from './despesas-routing.module';
 import { DespesasTotaisComponent } from './despesas-totais/despesas-totais.component';
 import { MoneyPipe } from '../shared/pipe/number-formater';
 import { SharedModule } from '../shared/shared.module';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { DespesasPorMesComponent } from './despesas-por-mes/despesas-por-mes.component';
 
 
 @NgModule({
   declarations: [
     DespesasTotaisComponent,
-    MoneyPipe
+    MoneyPipe,
+    DespesasPorMesComponent
   ],
   imports: [
     CommonModule,
     DespesasRoutingModule,
     AppMaterialModule,
-    SharedModule
+    SharedModule,
+    CanvasJSAngularChartsModule
   ]
 })
 export class DespesasModule { }

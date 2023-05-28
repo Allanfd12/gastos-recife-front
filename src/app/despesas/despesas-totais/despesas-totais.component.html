@@ -27,6 +27,16 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <div class="chart-container">
+        <div class="chart">
+            <mat-card>
+                <mat-card-content>
+                    <canvasjs-chart [options]="chartOptions" [styles]="{ height:'360px'}"></canvasjs-chart>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
 </div>
 <ng-template #spinner>
     <div class="spinner">
