@@ -11,3 +11,13 @@ $custom-theme: mat-light-theme($custom-primary, $custom-secondary, $custom-warn)
 @include angular-material-theme($custom-theme);
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* styles.css */
+.container {
+    height: 100vh; /* Define a altura da container para ocupar toda a tela verticalmente */
+  }
+  
+  .content {
+    height: 100%; /* Define a altura da região de conteúdo para ocupar todo o espaço disponível */
+  }
+  
