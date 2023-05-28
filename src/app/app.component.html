@@ -1,8 +1,7 @@
-
 <mat-sidenav-container class="container">
-  <mat-sidenav class="sidenav" mode="side" opened>
+  <mat-sidenav class="sidenav" mode="side" opened disableClose>
     <mat-toolbar color="primary">
-      <span>Despesas</span>
+      <span>Despesas do Recife em 2017</span>
     </mat-toolbar>
     <mat-nav-list class="nav-list">
       <a mat-list-item routerLink="/despesas">Totais</a>
@@ -14,11 +13,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-card>
-      <mat-card-content>
-        <router-outlet></router-outlet>
-      </mat-card-content>
-  </mat-card>
-    
+
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

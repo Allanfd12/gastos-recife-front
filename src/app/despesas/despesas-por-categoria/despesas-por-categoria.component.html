@@ -1,9 +1,10 @@
 <mat-toolbar color="primary">
-    <span>Despesas Por Mês </span>
+    <span>Despesas Por Categoria Economica </span>
 </mat-toolbar>
+
 <mat-card>
     <mat-card-content>
-        <div *ngIf="despesasPorMes$ | async as despesasPorMes; else spinner">
+        <div *ngIf="despesasPorCategoria$ | async as despesasPorCategoria; else spinner">
             <div class="chart-container">
                 <div class="chart">
                     <mat-card>
@@ -13,11 +14,16 @@
                     </mat-card>
                 </div>
             </div>
-            <table mat-table [dataSource]="despesasPorMes" class="mat-elevation-z8">
+            <table mat-table [dataSource]="despesasPorCategoria" class="mat-elevation-z8">
 
-                <ng-container matColumnDef="mes">
-                    <th mat-header-cell *matHeaderCellDef> Mês </th>
-                    <td mat-cell *matCellDef="let element"> {{element.mes}} </td>
+                <ng-container matColumnDef="categoriaNome">
+                    <th mat-header-cell *matHeaderCellDef> Categoria Economica </th>
+                    <td mat-cell *matCellDef="let element"> {{element.categoriaNome}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="categoriaCodigo">
+                    <th mat-header-cell *matHeaderCellDef> Codigo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.categoriaCodigo}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="empenho">

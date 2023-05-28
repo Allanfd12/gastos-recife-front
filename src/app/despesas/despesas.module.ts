@@ -8,13 +8,17 @@ import { MoneyPipe } from '../shared/pipe/number-formater';
 import { SharedModule } from '../shared/shared.module';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { DespesasPorMesComponent } from './despesas-por-mes/despesas-por-mes.component';
+import { DespesasPorCategoriaComponent } from './despesas-por-categoria/despesas-por-categoria.component';
+import { DespesasPorFonteComponent } from './despesas-por-fonte/despesas-por-fonte.component';
 
 
 @NgModule({
   declarations: [
     DespesasTotaisComponent,
     MoneyPipe,
-    DespesasPorMesComponent
+    DespesasPorMesComponent,
+    DespesasPorCategoriaComponent,
+    DespesasPorFonteComponent
   ],
   imports: [
     CommonModule,

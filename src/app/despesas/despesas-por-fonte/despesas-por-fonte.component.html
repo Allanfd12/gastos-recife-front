@@ -1,23 +1,21 @@
 <mat-toolbar color="primary">
-    <span>Despesas Por Mês </span>
+    <span>Despesas Por Fonte de Recurso </span>
 </mat-toolbar>
+
 <mat-card>
     <mat-card-content>
-        <div *ngIf="despesasPorMes$ | async as despesasPorMes; else spinner">
-            <div class="chart-container">
-                <div class="chart">
-                    <mat-card>
-                        <mat-card-content>
-                            <canvasjs-chart [options]="chartOptions" [styles]="{ height:'360px'}"></canvasjs-chart>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
-            </div>
-            <table mat-table [dataSource]="despesasPorMes" class="mat-elevation-z8">
+        <div *ngIf="despesasPorFonte$ | async as despesasPorFonte; else spinner">
 
-                <ng-container matColumnDef="mes">
-                    <th mat-header-cell *matHeaderCellDef> Mês </th>
-                    <td mat-cell *matCellDef="let element"> {{element.mes}} </td>
+            <table mat-table [dataSource]="despesasPorFonte" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="fonteNome">
+                    <th mat-header-cell *matHeaderCellDef> Fonte </th>
+                    <td mat-cell *matCellDef="let element"> {{element.fonteNome}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="fonteCodigo">
+                    <th mat-header-cell *matHeaderCellDef> Codigo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.fonteCodigo}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="empenho">
@@ -39,7 +37,16 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
 
+            <div class="chart-container">
+                <div class="chart">
+                    <mat-card>
+                        <mat-card-content>
+                            <canvasjs-chart [options]="chartOptions" [styles]="{ height:'560px'}"></canvasjs-chart>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
 
+            </div>
         </div>
         <ng-template #spinner>
             <div class="spinner">
