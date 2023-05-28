@@ -5,6 +5,7 @@ import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { DespesasRoutingModule } from './despesas-routing.module';
 import { DespesasTotaisComponent } from './despesas-totais/despesas-totais.component';
 import { MoneyPipe } from '../shared/pipe/number-formater';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MoneyPipe } from '../shared/pipe/number-formater';
   imports: [
     CommonModule,
     DespesasRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
+    SharedModule
   ]
 })
 export class DespesasModule { }
