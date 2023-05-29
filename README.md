@@ -1,27 +1,31 @@
-# GastosRecifeFront
+# Desafio Gastos Recife em 2017 (Front-end)
+Crie um App em Angular e Backend Java com SpringBoot, para ler e apresentar dados
+sobre os gastos do Recife
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+datasource http://dados.recife.pe.gov.br/dataset/despesas-orcamentarias/resource/d4d8a7f0-d4be-4397-b950-f0c991438111
 
-## Development server
+## Detalhes do desafio
+  - O sistema deve ter três visualizações:
+    -  Mostrando as despesas totais em cada mês
+    -  Mostrando as despesas totais agrupadas por categoria
+    -  Mostrar de onde vem o dinheiro agrupado por fonte
+  - Também escolha uma das seguintes opções para implementar:
+    - Possibilitar a edição e persistência dos dados.
+    - Unificar as três visualizações em uma única tela (SPA - Single Page Application)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Inicializando o Projeto
 
-## Code scaffolding
+Este projeto foi feito utilizando o [Angular CLI](https://github.com/angular/angular-cli) versão 16.0.2.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para rodar corretamente o sistema, será necessário instalar as dependencias do Angular para desenvolvimento local [Como configurar o ambiente Angular](https://angular.io/guide/setup-local).
 
-## Build
+Para carregar corretamente as informações do front, será necessário ainda, configurar o sistema de [Back-end](https://github.com/Allanfd12/gastos-recife-back).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para inicializar o servidor de dev utilize o comando `ng serve` no terminal. A aplicação ira criar por padrão um link em  `http://localhost:4200/`,
+todas as alterações feitas serão refletidas automaticamente no site apos salvas
 
-## Running unit tests
+## Imagens do Sistema
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![image](https://github.com/Allanfd12/gastos-recife-front/assets/75325265/895aea04-c171-4c2d-8f2d-713afa9aa891)
+![image](https://github.com/Allanfd12/gastos-recife-front/assets/75325265/d9a87352-52c6-410a-b246-113326da3aeb)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
