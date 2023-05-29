@@ -16,25 +16,25 @@ export class DespesasService {
   constructor(private httpClient: HttpClient) {}
 
   getDespesas() {
-    return this.httpClient.get<DespesasTotais[]>(this.API+'total')
+    return this.httpClient.get<DespesasTotais[]>(`${this.API}total`)
     .pipe(
       first()
     )
   }
   getDespesasMes() {
-    return this.httpClient.get<DespesasPorMes[]>(this.API+'mes')
+    return this.httpClient.get<DespesasPorMes[]>(`${this.API}mes`)
     .pipe(
       first()
     )
   }
   getDespesasCategoria() {
-    return this.httpClient.get<DespesasPorCategoria[]>(this.API+'categoria')
+    return this.httpClient.get<DespesasPorCategoria[]>(`${this.API}categoria`)
     .pipe(
       first()
     )
   }
   getDespesasFonte() {
-    return this.httpClient.get<DespesasPorFonte[]>(this.API+'fonte')
+    return this.httpClient.get<DespesasPorFonte[]>(`${this.API}fonte`)
     .pipe(
       first()
     )
