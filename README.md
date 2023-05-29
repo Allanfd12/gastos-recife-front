@@ -21,6 +21,8 @@ Para rodar corretamente o sistema, será necessário instalar as dependencias do
 
 Para carregar corretamente as informações do front, será necessário ainda, configurar o sistema de [Back-end](https://github.com/Allanfd12/gastos-recife-back).
 
+Rode o comando `npm install` para baixar as bibliotecas do sistema
+
 Para inicializar o servidor de dev utilize o comando `ng serve` no terminal. A aplicação ira criar por padrão um link em  `http://localhost:4200/`,
 todas as alterações feitas serão refletidas automaticamente no site apos salvas
 
