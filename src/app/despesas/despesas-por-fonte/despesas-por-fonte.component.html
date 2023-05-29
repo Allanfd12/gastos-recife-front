@@ -5,7 +5,16 @@
 <mat-card>
     <mat-card-content>
         <div *ngIf="despesasPorFonte$ | async as despesasPorFonte; else spinner">
+            <div class="chart-container">
+                <div class="chart-large">
+                    <mat-card>
+                        <mat-card-content>
+                            <canvasjs-chart [options]="chartOptions" [styles]="{ height:'360px'}"></canvasjs-chart>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
 
+            </div>
             <table mat-table [dataSource]="despesasPorFonte" class="mat-elevation-z8">
 
                 <ng-container matColumnDef="fonteNome">
@@ -37,16 +46,7 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
 
-            <div class="chart-container">
-                <div class="chart">
-                    <mat-card>
-                        <mat-card-content>
-                            <canvasjs-chart [options]="chartOptions" [styles]="{ height:'560px'}"></canvasjs-chart>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
 
-            </div>
         </div>
         <ng-template #spinner>
             <div class="spinner">

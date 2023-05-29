@@ -28,12 +28,14 @@ export class DespesasPorCategoriaComponent {
     axisY: {
       prefix: "R$ ",
       suffix: " mi",
+      includeZero: true,
     },
     axisX: {
-      reversed: true
+      reversed: true,
+      
     },
     data: [{
-      type: "stackedBar100",
+      type: "stackedBar",
       name: "Empenhado",
       showInLegend: true,
       legendMarkerType: "square",
@@ -61,7 +63,7 @@ export class DespesasPorCategoriaComponent {
 
       this.chartOptions.data = despesas.map(d => {
         return{
-          type: "stackedBar100",
+          type: "stackedBar",
           name: d.categoriaNome,
           showInLegend: true,
           legendMarkerType: "square",

@@ -21,20 +21,40 @@ export class DespesasPorFonteComponent {
     title: {
       text: "Despesas por Fonte Recursos"
     },
+    toolTip:  {
+      contentFormatter: function (e:any) {
+				var content = " ";
+				for (var i = 0; i < e.entries.length; i++) {
+					content += "<strong>"+e.entries[i].dataSeries.name + ":</strong>  " + "R$" + moneyScale(e.entries[i].dataPoint.y) ;
+					content += "<br/>";
+				}
+
+				return content;
+			}
+    },
+    legend: {
+      fontSize: 10,
+      verticalAlign: "center",
+      horizontalAlign: "left"
+    },
     axisY: {
+
       prefix: "R$ ",
       suffix: " mi",
-      scaleBreaks: {
-        autoCalculate: true //change it to false
-      }
-    },
+      includeZero: true,
 
+    },
+    axisX: {
+      reversed: true,
+      
+    },
     data: [{
       type: "doughnut",
       name: "Empenhado",
 
       dataPoints: [
-        { x: "1", y: 8 },
+       { y: 0, label: "Empenhado"},
+       { y: '0', label: "Empenhado"},
         { x: "2", y: 8 },
       ]
     }]
@@ -50,13 +70,26 @@ export class DespesasPorFonteComponent {
           return of([]);
         }
         ));
+        this.despesasPorFonte$.subscribe(despesas => {
+        var dcimal = 4.023556;
+        var money = dcimal.toFixed(2);
+        this.chartOptions.data = despesas.sort((a, b) => b.empenho - a.empenho)
+        .map(d => {
+          return{
+            type: "stackedBar",
+            name: d.fonteCodigo,
+            showInLegend: true,
+            legendMarkerType: "square",
+            dataPoints: [
+              {  y: d.empenho/ 1000000, label: "Empenhado"},
+              {  y: d.liquidacao/ 1000000, label: "Liquidado" },
+              {  y: d.pagamento/ 1000000, label: "Pago" }
+            ]
+          };
+  
+        });
 
-    this.despesasPorFonte$.subscribe(despesas => {
-      var empenhados = despesas.map(d => d.empenho / 1000000);
-      var liquidados = despesas.map(d => d.liquidacao / 1000000);
-      var pagos = despesas.map(d => d.pagamento / 1000000);
-
-
+/**    
       this.chartOptions.data = [
         {
           type: "doughnut",
@@ -64,12 +97,8 @@ export class DespesasPorFonteComponent {
         
           dataPoints: despesas.map((d) => { return { x: d.fonteNome, y: d.empenho/ 1000000 }; })
         },
-
-
       ];
-
-
-    }); 
+    */  });
 
   }
   onError(errorMsg: string) {
@@ -77,4 +106,13 @@ export class DespesasPorFonteComponent {
       data: errorMsg,
     });
   }
+
+  
+
+}
+function moneyScale(value: number) {
+  if(value >900){
+    return (value/1000).toFixed(2) + ' bi';
+  }
+  return value.toFixed(2)+ ' mi';
 }
